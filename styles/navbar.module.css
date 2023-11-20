@@ -1,0 +1,45 @@
+.container {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  justify-content: space-between;
+  position: relative;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing);
+}
+
+.logo span {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.form {
+  flex: 1;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.bars {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .hide {
+    display: none;
+  }
+  .bars {
+    display: flex;
+  }
+  .icons {
+    gap: 1rem;
+  }
+}

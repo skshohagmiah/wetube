@@ -2,16 +2,14 @@
   /* Colors */
   --primary-color: #ff0000; /* Red */
   --secondary-color: #00ff00; /* Green */
-  --accent-color: #3498db; /* Blue */
+  --accent-color: #1079c0; /* Blue */
+  --neutral: rgb(151, 147, 147);
 
   --background-light: #f4f4f4;
   --background-dark: #1f1f1f;
 
   --text-light: #ffffff;
   --text-dark: #333333;
-
-  /* Fonts */
-  --main-font: "Roboto", sans-serif;
 
   /* Spacing */
   --spacing: 0.5rem;
@@ -36,16 +34,19 @@
 .light {
   background-color: var(--background-light);
   color: var(--text-dark);
+  transition: var(--transition);
 }
 
 .dark {
   background-color: var(--background-dark);
-  color: var(--text-dark);
+  color: var(--text-light);
+  transition: var(--transition);
 }
 
 .container {
   max-width: var(--container-max-width);
   margin: 0 auto;
+  height: 100vh;
 }
 
 a {
@@ -57,18 +58,20 @@ ul {
   list-style: none;
 }
 
-.button {
-  background-color: var(--primary-color);
+button {
+  background-color: var(--accent-color);
+  text-transform: capitalize;
   color: var(--text-light);
-  padding: var(--spacing) var(--spacing * 2);
+  padding: 1rem;
   border: none;
   border-radius: var(--radius);
   cursor: pointer;
   transition: var(--transition);
 }
 
-.button:hover {
-  background-color: darken(var(--primary-color), 10%);
+button:hover {
+  background-color: (var(--primary-color), 10%);
+  color: var(--neutral);
 }
 
 /* Add more styles based on your specific design and components */

@@ -1,0 +1,28 @@
+.container {
+  position: relative;
+  width: 4.5rem;
+  height: 2rem;
+  border-radius: 1rem;
+  background-color: var(--neutral);
+  padding: 0.2rem;
+  cursor: pointer;
+}
+
+.ball {
+  position: absolute;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+}
+
+.left {
+  left: 2px;
+  top: 1px;
+  background: var(--text-dark);
+}
+
+.right {
+  right: 2px;
+  top: 1px;
+  background: var(--text-light);
+}

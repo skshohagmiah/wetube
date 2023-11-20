@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  gap: var(--spacing);
+  align-items: center;
+}
+
+.img {
+  border-radius: 50px;
+  cursor: pointer;
+}

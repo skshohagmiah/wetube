@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: var(--spacing);
+  height: 100vh;
+}
+
+.info {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--neutral);
+}
+
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  border: 1px solid var(--neutral);
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius);
+}
+
+.login button {
+  font-size: 1.2rem;
+}
