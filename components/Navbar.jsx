@@ -19,7 +19,9 @@ const Navbar = () => {
         <Search />
         <div className={styles.icons}>
           <Theme />
-          <AddVideo />
+          <Link href='/addVideo'>
+            <AddVideo />
+          </Link>
           <Notification />
           <UserProfile />
         </div>

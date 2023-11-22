@@ -1,4 +1,6 @@
-import GoogleProvider from "next-auth/providers/google"
+import { User } from "@/models/user";
+import GoogleProvider from "next-auth/providers/google";
+import { connectToDatabase } from "./connectToMongodb";
 
 export const authOptions = {
     // Configure one or more authentication providers
@@ -6,14 +8,18 @@ export const authOptions = {
         GoogleProvider({
         clientId: process.env.GOOGLE_ID,
         clientSecret: process.env.GOOGLE_SECRET,
+        
       }),
       // ...add more providers here
     ],
     callbacks: {
-      async signin( user ) {
-        console.log(user)
-        // Persist the OAuth access_token to the token right after signin
-        return user
+      async signIn({user}) {
+        connectToDatabase()
+        const userExist = await User.find({email:user.email})
+        if(!userExist){
+          await User.create({name:user.name,email:user.email,img:user.image})
+        }
+        return true;
       },
-  }
+    },
 }

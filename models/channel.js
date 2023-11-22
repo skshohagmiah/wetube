@@ -21,6 +21,6 @@ const channelSchema = new mongoose.Schema({
         required:true,
     }
 
-})
+},{timestamps:true})
 
 export const Channel = mongoose.models.Channel || mongoose.model('Channel', channelSchema);

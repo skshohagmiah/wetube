@@ -3,7 +3,7 @@
   --primary-color: #ff0000; /* Red */
   --secondary-color: #00ff00; /* Green */
   --accent-color: #1079c0; /* Blue */
-  --neutral: rgb(151, 147, 147);
+  --neutral: rgb(112, 112, 218);
 
   --background-light: #f4f4f4;
   --background-dark: #1f1f1f;
@@ -12,9 +12,9 @@
   --text-dark: #333333;
 
   /* Spacing */
-  --spacing: 0.5rem;
-  --radius: 0.3rem;
-  --container-max-width: 1200px;
+  --spacing: 0.8rem;
+  --radius: 0.5rem;
+  --container-max-width: 1300px;
 
   /* Shadows */
   --shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -46,7 +46,6 @@
 .container {
   max-width: var(--container-max-width);
   margin: 0 auto;
-  height: 100vh;
 }
 
 a {
@@ -56,6 +55,11 @@ a {
 
 ul {
   list-style: none;
+}
+
+img {
+  max-width: 100%;
+  object-fit: cover;
 }
 
 button {
@@ -69,9 +73,28 @@ button {
   transition: var(--transition);
 }
 
+input[type="submit"] {
+  background-color: var(--primary-color);
+  text-transform: capitalize;
+  color: var(--text-light);
+  padding: 1rem;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+input[type="submit"]:hover {
+  opacity: 0.3;
+}
+
+input:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
 button:hover {
-  background-color: (var(--primary-color), 10%);
-  color: var(--neutral);
+  opacity: 0.5;
 }
 
 /* Add more styles based on your specific design and components */

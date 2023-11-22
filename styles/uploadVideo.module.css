@@ -1,0 +1,68 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.form {
+  background: var(--neutral);
+  width: 80%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
+  border-radius: var(--radius);
+}
+
+.form h2 {
+  text-align: center;
+}
+
+.form input {
+  padding: 0.8rem;
+  font-size: 1.2rem;
+  border-radius: var(--radius);
+  border: none;
+}
+
+.form label {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.form input[type="file"] {
+  visibility: hidden;
+}
+
+.form .thumbnail,
+.form .video {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 2rem;
+  padding: 1rem;
+  border: 2px solid var(--secondary-color);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.form .thumbnail {
+  margin-top: 1rem;
+}
+
+.form .video {
+  margin-top: -2rem;
+}
+.form label:hover {
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 768px) {
+  .form {
+    width: 100%;
+    padding: 1rem;
+  }
+}

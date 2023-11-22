@@ -2,7 +2,8 @@
 import styles from '@/styles/modal.module.css';
 import { signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
-
+import Link from 'next/link';
+import { IoIosLogOut } from "react-icons/io";
 
 const Modal = () => {
 
@@ -19,7 +20,10 @@ const Modal = () => {
         </div>
         <button>View your profile</button>
         <button>view your videos</button>
-        <button onClick={signOut}>Logout</button>
+        <button>
+        <Link href='/addChannel'>Create a Channel</Link>
+       </button>
+        <button className={styles.signout} onClick={signOut}><IoIosLogOut size={20}/> Logout</button>
     </div>
   )
 }

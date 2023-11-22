@@ -14,6 +14,6 @@ const commentSchema = new mongoose.Schema({
         ref:"User"
     }
 
-})
+},{timestamps:true})
 
 export const Comment = mongoose.models.Comment || mongoose.model('Comment', commentSchema);

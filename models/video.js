@@ -18,9 +18,11 @@ const videoSchema = new mongoose.Schema({
     },
     like:{
         type:Number,
+        default:0,
     },
     disLike:{
         type:Number,
+        default:0,
     },
     userId:{
         type:Schema.Types.ObjectId,
@@ -30,6 +32,6 @@ const videoSchema = new mongoose.Schema({
         type:Schema.Types.ObjectId,
         ref:"Channel"
     }
-})
+},{timestamps:true})
 
 export const Video = mongoose.models.Video || mongoose.model('Video', videoSchema);

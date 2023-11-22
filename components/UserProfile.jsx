@@ -18,7 +18,7 @@ const UserProfile = () => {
 
   return (
     <div className={styles.container} onClick={handleModal}>
-      <Image className={styles.img} src={session?.user.image} alt="user pic" width={50} height={50}/>
+      <Image className={styles.img || '/google-logo.png'} src={session?.user.image} alt="user pic" width={50} height={50}/>
       <div>
         {open && <Modal />}
       </div>
