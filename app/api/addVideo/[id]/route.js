@@ -12,7 +12,7 @@ export async function GET(req, { params }) {
       Channel 
       const video = await Video.findOne({ _id: id.toString() }).populate('channelId');
       console.log(video)
-      return new NextResponse({video},{message:"succesfull"});
+      return new NextResponse(JSON.stringify(video),{message:"succesfull"});
     } catch (error) {
       console.error(error);
     }
