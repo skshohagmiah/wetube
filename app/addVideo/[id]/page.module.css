@@ -68,6 +68,7 @@
   padding: 0 0.2rem;
   width: 6rem;
   height: 3rem;
+  cursor: pointer;
 }
 
 .likeCount {

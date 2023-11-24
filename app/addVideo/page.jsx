@@ -1,5 +1,7 @@
 import { connectToDatabase } from "@/libs/connectToMongodb";
+import { getUser } from "@/libs/getUser";
 import { Channel } from "@/models/channel";
+import { User } from "@/models/user";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css";
@@ -8,7 +10,9 @@ import styles from "./page.module.css";
 async function fetchChannel() {
   try {
     connectToDatabase();
-    const channels = await Channel.find();
+    const currentUser = await getUser();
+    const user  = await User.findOne({email:currentUser?.email})
+    const channels = await Channel.find({"userId" : user?._id});
     return channels;
   } catch (error) {
     console.log(error);

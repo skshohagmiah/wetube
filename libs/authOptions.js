@@ -15,7 +15,7 @@ export const authOptions = {
     callbacks: {
       async signIn({user}) {
         connectToDatabase()
-        const userExist = await User.find({email:user.email})
+        const userExist = await User.findOne({email:user.email})
         if(!userExist){
           await User.create({name:user.name,email:user.email,img:user.image})
         }
