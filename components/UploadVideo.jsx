@@ -31,6 +31,7 @@ async function postVideo(data){
           await axios.post('/api/addVideo',data)
           setLoading(false)
           router.push('/')
+          router.refresh()
 
     } catch (error) {
         console.log(error)
@@ -42,6 +43,7 @@ async function postVideo(data){
 const notify = () => toast("Your Video is Uploading!");
 
 function handleImage(){
+   return new Promise((resolve, reject) => {
     const storage = getStorage(app)
     // Upload file and metadata to the object 'images/mountains.jpg'
     const storageRef = ref(storage, 'images/' + thumb.name);
@@ -76,20 +78,19 @@ function handleImage(){
       }, 
       () => {
         // Upload completed successfully, now we can get the download URL
-        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          console.log('File available at', downloadURL);
-          setThumbnailUrl(downloadURL);
-        });
-      }
-    );
+        getDownloadURL(uploadTask.snapshot.ref)
+        .then((downloadURL) => resolve(downloadURL))
+        .catch(reject);
+    });
+   })
 }
 
 
 
 
 function handleVideo(){
-  setLoading(true)
-const storage = getStorage(app)
+  return new Promise((resolve,reject) => {
+    const storage = getStorage(app)
 // Upload file and metadata to the object 'images/mountains.jpg'
 const storageRef = ref(storage, 'videos/' + video.name);
 const uploadTask = uploadBytesResumable(storageRef, video);
@@ -124,23 +125,29 @@ uploadTask.on('state_changed',
   () => {
 
     // Upload completed successfully, now we can get the download URL
-    getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-      console.log('File available at', downloadURL);
-      setVideoUrl(downloadURL);
-      setLoading(false)
-      if(videoUrl){
-        postVideo({title,description,thumbnail:thumbnailUrl,videoUrl,email:session?.user?.email,channelId})
-      }
-    });
-  }
-);
+    getDownloadURL(uploadTask.snapshot.ref)
+      .then((downloadURL) => resolve(downloadURL))
+      .catch(reject);
+  });
+  })
+
 }
 
-function handleSubmit(e){   
-    e.preventDefault()
-    handleImage()
-    handleVideo()
-    notify()
+async function handleSubmit(e) {
+  e.preventDefault();
+
+  try {
+    notify();
+    setLoading(true)
+    const [thumbnailUrl, videoUrl] = await Promise.all([handleImage(), handleVideo()]);
+    
+
+    // Now you can use thumbnailUrl and videoUrl to post your data or perform any other actions.
+    postVideo({ title, description, thumbnail: thumbnailUrl, videoUrl, email: session?.user?.email, channelId });
+    setLoading(false)
+  } catch (error) {
+    console.error("Error during form submission:", error);
+  }
 }
 
 

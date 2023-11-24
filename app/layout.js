@@ -1,10 +1,10 @@
-import Login from '@/components/Login'
 import Navbar from '@/components/Navbar'
 import { AuthProvider } from '@/libs/AuthProvider'
 import { ThemeProvider } from '@/libs/ThemeProvider'
 import { getUser } from '@/libs/getUser'
 import { Poppins } from 'next/font/google'
 import 'react-toastify/dist/ReactToastify.css'
+import Login from '../components/Login'
 import './globals.css'
 
 const poppins = Poppins({ subsets: ['latin'],weight:[ '400', "500", '700']})

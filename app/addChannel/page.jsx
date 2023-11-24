@@ -40,7 +40,7 @@ async function createChannal(data){
 
 
 function handleImage(){
-  setLoading(true)
+  return new Promise((resolve, reject) => {
     const storage = getStorage(app)
     // Upload file and metadata to the object 'images/mountains.jpg'
     const storageRef = ref(storage, 'thumbnails/' + thumb.name);
@@ -75,23 +75,23 @@ function handleImage(){
       }, 
       () => {
         // Upload completed successfully, now we can get the download URL
-        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          console.log('File available at', downloadURL);
-          setThumbnailUrl(downloadURL);
-          setLoading(false)
-          if(thumbnailUrl){
-            createChannal({name,thumbnailUrl,email})
+        getDownloadURL(uploadTask.snapshot.ref)
+        .then((downloadURL) => resolve(downloadURL))
+        .catch(reject);
+    })
+  });
 
-          }
-        });
-      }
-      );
 }
 
- function handleSubmit(e){
-    e.preventDefault()
-    handleImage()
-    notify()
+async function handleSubmit(e){
+   try {
+     e.preventDefault()
+     notify()
+    const thumbnailUrl = await handleImage()
+    createChannal({name,thumbnailUrl,email})
+   } catch (error) {
+    console.log(error)
+   }
 
 }
   return (

@@ -1,6 +1,6 @@
 .container {
-  width: 15rem;
-  height: 20rem;
+  width: 20rem;
+  height: 27rem;
   border-radius: var(--radius);
   background: var(--neutral);
   position: absolute;
@@ -10,16 +10,30 @@
   padding: 1rem;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   gap: var(--spacing);
 }
 
-.container button {
-  background-color: var(--accent-color);
+.container a {
+  font-size: 1.2rem;
   padding: 0.5rem;
+  text-transform: capitalize;
+  border: 1px solid rgb(65, 64, 64);
+  width: 100%;
+  border-radius: var(--radius);
+  text-align: center;
 }
 
-.container button:last-child {
+.container a:hover {
+  opacity: 0.5;
+}
+
+.container button {
   background-color: var(--primary-color);
+  align-self: self-start;
+  justify-content: center;
+  width: 100%;
 }
 
 .container button:hover {
@@ -30,6 +44,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-direction: column;
 }
 
 .userInfo {

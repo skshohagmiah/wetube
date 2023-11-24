@@ -1,23 +1,26 @@
 import { connectToDatabase } from "@/libs/connectToMongodb";
+import { Channel } from "@/models/channel";
 import { Video } from "@/models/video";
 import styles from "@/styles/videoList.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { TiTick } from "react-icons/ti";
 
-const fetchVideos = async () => {
+const fetchVideos = async (searchParams) => {
   try {
-    connectToDatabase();
-    const videos = await Video.find({}).populate("channelId");
-    console.log(videos);
+     connectToDatabase();
+    const videos = await Video.find({'title':{$regex: new RegExp(searchParams, 'i')}}).populate("channelId");
+    //just imported channel model otherwise get error : mongoose error modal not register
+    Channel
+    
     return videos
   } catch (error) {
     console.log(error);
   }
 };
 
-const VideoList = async () => {
-  const videos = await fetchVideos();
+const VideoList = async ({searchParams}) => {
+  const videos = await fetchVideos(searchParams);
 
 
   return (

@@ -13,16 +13,14 @@ const Modal = () => {
     <div className={styles.container}>
         <div className={styles.user}>
             <div className={styles.userInfo}>
-            <span className={styles.name}>Hello,</span>
-            <span>{session.user.name}</span>
+            <span className={styles.name}>Welcome,</span>
             </div>
             <Image className={styles.img} src={session?.user?.image} alt= 'user pic' width={100} height={100} />
+            <span>{session.user.name}</span>
+            <span>{session.user.email}</span>
         </div>
-        <button>View your profile</button>
-        <button>view your videos</button>
-        <button>
+        <Link href='/yourvideo'>view your videos</Link>
         <Link href='/addChannel'>Create a Channel</Link>
-       </button>
         <button className={styles.signout} onClick={signOut}><IoIosLogOut size={20}/> Logout</button>
     </div>
   )

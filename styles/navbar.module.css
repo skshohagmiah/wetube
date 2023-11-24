@@ -1,4 +1,4 @@
-.container {
+.lightContainer {
   padding: 0.5rem;
   display: flex;
   align-items: center;
@@ -6,6 +6,22 @@
   justify-content: space-between;
   position: sticky;
   top: 0;
+  z-index: 99;
+  background: var(--background-light);
+  transition: var(--transition);
+}
+
+.darkContainer {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  background: var(--background-dark);
+  transition: var(--transition);
 }
 
 .logo {

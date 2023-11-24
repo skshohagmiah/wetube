@@ -1,0 +1,120 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-inline: auto;
+  gap: var(--spacing);
+
+  padding: 1rem;
+  width: 80%;
+  min-height: 100vh;
+}
+
+.video {
+  width: 100%;
+  height: 70vh;
+  aspect-ratio: 16/9;
+  box-shadow: var(--shadaw);
+  border-radius: var(--radius);
+}
+
+.optionContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 2rem;
+}
+
+.firstOption {
+  display: flex;
+  gap: 1rem;
+}
+
+.firstOption img {
+  border-radius: 50%;
+}
+
+.channel {
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+.name {
+  text-transform: capitalize;
+}
+
+.secondOption {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.secondOption div {
+  width: max-content;
+  padding: 0.5rem;
+  background: rgb(44, 43, 43);
+  color: var(--text-light);
+  border-radius: 2rem;
+  text-align: center;
+  gap: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.likebox {
+  padding: 0 0.2rem;
+  width: 6rem;
+  height: 3rem;
+}
+
+.likeCount {
+  font-size: 1rem;
+  border-right: 2px solid black;
+  padding-right: 1rem;
+  margin-left: -1rem;
+}
+
+.comments {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.comments input:first-child {
+  width: 80%;
+  padding: 1rem;
+  border: none;
+  border-radius: var(--radius);
+}
+
+.comments form {
+  display: flex;
+  gap: var(--spacing);
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+    align-items: start;
+    justify-content: start;
+  }
+  .optionContainer {
+    flex-direction: column;
+    font-size: 1rem;
+    align-items: flex-start;
+  }
+  .optionContainer .secondOption {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    font-size: 2rem;
+  }
+
+  .video {
+    width: 100%;
+    height: 15rem;
+    object-fit: cover;
+  }
+}

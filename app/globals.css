@@ -3,7 +3,7 @@
   --primary-color: #ff0000; /* Red */
   --secondary-color: #00ff00; /* Green */
   --accent-color: #1079c0; /* Blue */
-  --neutral: rgb(112, 112, 218);
+  --neutral: rgb(147, 93, 168);
 
   --background-light: #f4f4f4;
   --background-dark: #1f1f1f;
@@ -17,7 +17,7 @@
   --container-max-width: 1300px;
 
   /* Shadows */
-  --shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
 
   /* Transition */
   --transition: all 0.3s ease-in-out;

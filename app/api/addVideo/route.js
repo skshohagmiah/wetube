@@ -5,6 +5,8 @@ import { Video } from "@/models/video";
 import { NextResponse } from 'next/server';
 
 
+
+
 export async function POST(req) {
     
     const { title, description, thumbnail, videoUrl, email, channelId : chan } = await req.json();

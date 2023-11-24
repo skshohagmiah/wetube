@@ -4,7 +4,7 @@ import { createContext, useEffect, useState } from "react";
 export const ThemeContext = createContext();
 
 export function ThemeProvider({children}){
-    const [mode, setMode] = useState();
+    const [mode, setMode] = useState(true);
 
     useEffect(() => {
         const storedMode = localStorage.getItem('mode');

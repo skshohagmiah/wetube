@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.singleComment {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 0.2rem;
+  border-radius: var(--radius);
+  color: var(--text-light);
+  background: rgb(53, 52, 52);
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.user img {
+  border-radius: 50%;
+}
