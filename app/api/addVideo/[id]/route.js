@@ -6,9 +6,9 @@ export async function GET(req, { params }) {
     const { id } = params;
     try {
       await connectToDatabase();
-      const video = await Video.findOne({ '_id': id }).populate('channelId');
+      const video = await Video.findOne({ _id: id }).populate('channelId');
       console.log(video)
-      return new NextResponse({video});
+      return new NextResponse(JSON.stringify(video));
     } catch (error) {
       console.error(error);
     }

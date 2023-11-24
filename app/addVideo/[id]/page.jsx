@@ -25,7 +25,9 @@ const Video = ({params}) => {
             "Content-Type": "application/json"
           }
         });
-        setVideo(response.data);
+        if(response.data){
+          setVideo(response.data);
+        }
        }
       } catch (error) {
         console.error("Error fetching video:", error);
