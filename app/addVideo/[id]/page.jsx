@@ -19,12 +19,14 @@ const Video = ({params}) => {
   useEffect(() => {
     const fetchVideo = async () => {
       try {
+       if(id){
         const response = await axios.get(`/api/addVideo/${id}`, {
           headers: {
             "Content-Type": "application/json"
           }
         });
         setVideo(response.data);
+       }
       } catch (error) {
         console.error("Error fetching video:", error);
       }
