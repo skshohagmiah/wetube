@@ -29,7 +29,7 @@ const VideoList = async ({searchParams}) => {
         <Link key={video._id} href={`/addVideo/${video._id}`}>
            <div  className={styles.singleVideo}>
           <div className={styles.thumbnail}>
-            <Image className={styles.img} src={video?.thumbnail} alt="thumnail" fill />
+            <Image className={styles.img} src={video?.thumbnail} alt="thumnail" width={100} height={100} />
           </div>
           <div className={styles.videoInfo}>
             <div className={styles.channelImg}>
